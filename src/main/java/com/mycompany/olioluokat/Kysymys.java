@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mycompany.opikaikki;
+package com.mycompany.olioluokat;
 
 /**
  *
@@ -27,5 +27,9 @@ public class Kysymys {
     
     public String getKuvaus(){
         return this.kuvaus;
+    }
+    
+    public String getOikeavastaus(){
+        return this.oikeavastaus;
     }
 }

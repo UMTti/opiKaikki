@@ -5,6 +5,9 @@
  */
 package com.mycompany.opikaikki;
 
+import com.mycompany.käsittelijät.VastaustenKäsittelijä;
+import com.mycompany.käsittelijät.KysymystenKäsittelijä;
+
 /**
  *
  * @author pihla
@@ -17,6 +20,11 @@ public class Main {
     public static void main(String[] args) {
         KysymystenKäsittelijä k = new KysymystenKäsittelijä("src/tmoduuli.txt");
         k.tulostaKysymykset();
+        k.lisääKysymys("neljas", "T");
+        k.tallennaKysymykset();
+        VastaustenKäsittelijä v = new VastaustenKäsittelijä("src/tmoduulivastaukset.txt", k);
+        v.lisääVastaus(2, "T");
+        v.tallennaVastaukset();
     }
     
 }

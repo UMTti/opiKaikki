@@ -1,2 +1,11 @@
-1;Kysymys;T
-2;Tokakysymys;E
+1;neljas;T
+2;neljas;T
+3;neljas;T
+4;neljas;T
+5;neljas;T
+6;neljas;T
+7;neljas;T
+8;neljas;T
+9;neljas;T
+10;neljas;T
+11;neljas;T

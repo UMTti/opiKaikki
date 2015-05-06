@@ -3,10 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mycompany.opikaikki;
+package com.mycompany.käsittelijät;
 
+import com.mycompany.DAO.KysymysDAO;
+import com.mycompany.olioluokat.Kysymys;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Scanner;
 import java.util.logging.Level;
@@ -25,23 +29,15 @@ public class KysymystenKäsittelijä {
         this.kysymykset = new HashMap<Integer, Kysymys>();
         this.max_id = 0;
         this.tiedostonimi = tiedostonimi;
-        this.lataaKysymykset();
+        KysymysDAO.lataaKysymykset(this);
     }
     
-    private void lataaKysymykset(){
-        Scanner lukija;
-        try {
-            System.out.println(this.tiedostonimi);
-            lukija = new Scanner(new File(this.tiedostonimi));
-        } catch (FileNotFoundException ex) {
-            System.out.println("Tiedostoa ei löytynyt");
-            return;
-        }
-        while(lukija.hasNextLine()){
-            String rivi = lukija.nextLine();
-            String[] tiedot = rivi.split(";");
-            lisaaKysymys(Integer.parseInt(tiedot[0]), tiedot[1], tiedot[2]);
-        }
+    public String getTiedostonimi(){
+        return this.tiedostonimi;
+    }
+    
+    public HashMap<Integer, Kysymys> getKysymykset(){
+        return this.kysymykset;
     }
     
     public void lisääKysymys(String kuvaus, String oikeavastaus){
@@ -50,7 +46,7 @@ public class KysymystenKäsittelijä {
         this.max_id++;
     }
     
-    public void lisaaKysymys(int id, String kuvaus, String oikeavastaus){
+    public void lisääKysymys(int id, String kuvaus, String oikeavastaus){
         Kysymys uusi = new Kysymys(id, kuvaus, oikeavastaus);
         this.kysymykset.put(uusi.getId(), uusi);
         this.max_id = Math.max(this.max_id, uusi.getId());
@@ -58,7 +54,11 @@ public class KysymystenKäsittelijä {
     
     public void tulostaKysymykset(){
         for (int i : this.kysymykset.keySet()) {
-            System.out.println(this.kysymykset.get(i).getKuvaus());
+            System.out.println(this.kysymykset.get(i).getId() + " " + this.kysymykset.get(i).getKuvaus());
         }
+    }
+    
+    public void tallennaKysymykset(){
+        KysymysDAO.tallennaKysymykset(this);
     }
 }
