@@ -61,4 +61,8 @@ public class KysymystenKäsittelijä {
     public void tallennaKysymykset(){
         KysymysDAO.tallennaKysymykset(this);
     }
+    
+    public int getMax_id(){
+        return this.max_id;
+    }
 }
