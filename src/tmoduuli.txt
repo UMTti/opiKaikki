@@ -9,3 +9,4 @@
 9;neljas;T
 10;neljas;T
 11;neljas;T
+12;neljas;T
