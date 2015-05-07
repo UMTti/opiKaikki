@@ -36,7 +36,11 @@ public class ModuuliPanel extends JPanel {
         JButton nappi = new JButton("Lisää kysymys moduuliin");
         KysymyksenLisäysnäkymäKuuntelija kuuntelija = new KysymyksenLisäysnäkymäKuuntelija(m, container);
         nappi.addActionListener(kuuntelija);
+        JButton aloitusNappi = new JButton("Aloita kierros");
+        KierroksenAloitusKuuntelija aloituskuuntelija = new KierroksenAloitusKuuntelija(m, container);
+        aloitusNappi.addActionListener(aloituskuuntelija);
         container.add(moduulinNimi);
         container.add(nappi);
+        container.add(aloitusNappi);
     }
 }

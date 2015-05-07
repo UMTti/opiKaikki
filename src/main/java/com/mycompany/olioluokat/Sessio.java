@@ -18,11 +18,17 @@ public class Sessio {
     private VastaustenKäsittelijä v;
     private KysymystenKäsittelijä k;
     private ArrayList<Vastaus> vastaukset;
+    private Moduuli m;
     
-    public Sessio(String vastaustiedosto, KysymystenKäsittelijä k){
+    public Sessio(Moduuli m, String vastaustiedosto, KysymystenKäsittelijä k){
         this.k = k;
+        this.m = m;
         this.vastaukset = new ArrayList<Vastaus>();
         this.v = new VastaustenKäsittelijä(vastaustiedosto, k);        
+    }
+    
+    public Moduuli getModuuli(){
+        return this.m;
     }
     
     public void lisääVastaus(int kysymysId, String vastaus){

@@ -29,12 +29,12 @@ public class SessioDAO {
             System.out.println("Tiedostoa ei löytynyt");
             return;
         }
-        Sessio uusi = new Sessio(m.getVastausTiedostonnimi(), m.getKysymystenKäsittelijä());
+        Sessio uusi = new Sessio(m, m.getVastausTiedostonnimi(), m.getKysymystenKäsittelijä());
         while(lukija.hasNextLine()){
             String rivi = lukija.nextLine();
             if(rivi.contains("...")){
                 m.lisääSessio(uusi);
-                uusi = new Sessio(m.getVastausTiedostonnimi(), m.getKysymystenKäsittelijä());
+                uusi = new Sessio(m, m.getVastausTiedostonnimi(), m.getKysymystenKäsittelijä());
                 continue;
             }
             String[] tiedot = rivi.split(";");
