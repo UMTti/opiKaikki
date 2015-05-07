@@ -10,3 +10,5 @@
 10;neljas;T
 11;neljas;T
 12;neljas;T
+13;E;Pitäisi mennä tiedostoon
+14;No nyt;meneekö

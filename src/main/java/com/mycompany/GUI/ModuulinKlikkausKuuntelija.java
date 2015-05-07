@@ -7,6 +7,7 @@ package com.mycompany.GUI;
 
 import com.mycompany.olioluokat.Kysymys;
 import com.mycompany.olioluokat.Moduuli;
+import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
@@ -34,23 +35,8 @@ public class ModuulinKlikkausKuuntelija implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         container.removeAll();
-        BoxLayout layout = new BoxLayout(container, BoxLayout.Y_AXIS);
-        container.setLayout(layout);
-        JLabel esittely = new JLabel("Lisää kysymys moduuliin " + m.getNimi());
-        JLabel kysymysTeksti = new JLabel("Anna kysymys: ");
-        JTextField kysymysKentta = new JTextField();
-        kysymysKentta.setSize(new Dimension(5, 5));
-        JLabel oikeavastausTeksti = new JLabel("Oikea vastaus (E / T) ");
-        JTextField oikeavastausKentta = new JTextField();
-        JButton lisaaNappi = new JButton("Lisää kysymys!");
-        KysymyksenLisäysKuuntelija kuuntelija = new KysymyksenLisäysKuuntelija(m, oikeavastausKentta, kysymysKentta);
-        lisaaNappi.addActionListener(kuuntelija);
-        container.add(esittely);
-        container.add(kysymysTeksti);
-        container.add(kysymysKentta);
-        container.add(oikeavastausTeksti);
-        container.add(oikeavastausKentta);
-        container.add(lisaaNappi);
+        container.add(new ModuuliPanel(this.m, this.container), BorderLayout.SOUTH);
+
         container.validate();
         container.repaint();
     }
