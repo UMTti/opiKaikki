@@ -6,7 +6,6 @@
 package com.mycompany.opikaikki;
 
 import com.mycompany.GUI.Kayttoliittyma;
-import com.mycompany.käsittelijät.VastaustenKäsittelijä;
 import com.mycompany.käsittelijät.KysymystenKäsittelijä;
 import com.mycompany.olioluokat.Moduuli;
 import java.util.ArrayList;

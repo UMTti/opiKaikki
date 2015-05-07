@@ -7,7 +7,6 @@ package com.mycompany.olioluokat;
 
 import com.mycompany.DAO.SessioDAO;
 import com.mycompany.käsittelijät.KysymystenKäsittelijä;
-import com.mycompany.käsittelijät.VastaustenKäsittelijä;
 import java.util.ArrayList;
 
 /**

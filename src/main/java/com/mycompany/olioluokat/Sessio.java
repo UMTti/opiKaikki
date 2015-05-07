@@ -7,7 +7,6 @@ package com.mycompany.olioluokat;
 
 import com.mycompany.DAO.SessioDAO;
 import com.mycompany.käsittelijät.KysymystenKäsittelijä;
-import com.mycompany.käsittelijät.VastaustenKäsittelijä;
 import java.util.ArrayList;
 
 /**
@@ -16,7 +15,6 @@ import java.util.ArrayList;
  */
 public class Sessio {
     
-    private VastaustenKäsittelijä v;
     private KysymystenKäsittelijä k;
     private ArrayList<Vastaus> vastaukset;
     private Moduuli m;
@@ -24,8 +22,7 @@ public class Sessio {
     public Sessio(Moduuli m, String vastaustiedosto, KysymystenKäsittelijä k){
         this.k = k;
         this.m = m;
-        this.vastaukset = new ArrayList<Vastaus>();
-        this.v = new VastaustenKäsittelijä(vastaustiedosto, k);        
+        this.vastaukset = new ArrayList<Vastaus>();    
     }
     
     public Moduuli getModuuli(){
