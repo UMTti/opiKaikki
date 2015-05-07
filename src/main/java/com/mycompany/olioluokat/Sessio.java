@@ -3,29 +3,30 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mycompany.käsittelijät;
+package com.mycompany.olioluokat;
 
 import com.mycompany.käsittelijät.KysymystenKäsittelijä;
-import com.mycompany.olioluokat.Kysymys;
-import com.mycompany.olioluokat.Vastaus;
+import com.mycompany.käsittelijät.VastaustenKäsittelijä;
 import java.util.ArrayList;
 
 /**
  *
  * @author pihla
  */
-public class VastaustenKäsittelijä {
-    private ArrayList<Vastaus> vastaukset;
-    private String tiedostonimi;
-    private KysymystenKäsittelijä k;
+public class Sessio {
     
-    public VastaustenKäsittelijä(String tiedostonimi, KysymystenKäsittelijä k){
-        this.tiedostonimi = tiedostonimi;
+    private VastaustenKäsittelijä v;
+    private KysymystenKäsittelijä k;
+    private ArrayList<Vastaus> vastaukset;
+    
+    public Sessio(String vastaustiedosto, KysymystenKäsittelijä k){
         this.k = k;
         this.vastaukset = new ArrayList<Vastaus>();
+        this.v = new VastaustenKäsittelijä(vastaustiedosto, k);        
     }
     
     public void lisääVastaus(int kysymysId, String vastaus){
+        System.out.println("Lisätään vastausta: " + kysymysId + " " + vastaus);
         Kysymys ky = k.getKysymykset().get(kysymysId);
         if(ky == null){
             System.out.println("Vastaukselle ei ole kysymystä");
@@ -35,11 +36,8 @@ public class VastaustenKäsittelijä {
         this.vastaukset.add(uusi);
     }
     
-    public String getTiedostonimi(){
-        return this.tiedostonimi;
-    }
-    
     public ArrayList<Vastaus> getVastaukset(){
         return this.vastaukset;
     }
+     
 }

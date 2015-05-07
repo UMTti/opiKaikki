@@ -14,6 +14,7 @@ import java.awt.Container;
 import java.awt.GridLayout;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class ModuuliPanel extends JPanel {
@@ -31,9 +32,11 @@ public class ModuuliPanel extends JPanel {
     private void luoKomponentit() {
         BoxLayout layout = new BoxLayout(container, BoxLayout.Y_AXIS);
         container.setLayout(layout);
+        JLabel moduulinNimi = new JLabel(this.m.getNimi());
         JButton nappi = new JButton("Lisää kysymys moduuliin");
         KysymyksenLisäysnäkymäKuuntelija kuuntelija = new KysymyksenLisäysnäkymäKuuntelija(m, container);
         nappi.addActionListener(kuuntelija);
+        container.add(moduulinNimi);
         container.add(nappi);
     }
 }

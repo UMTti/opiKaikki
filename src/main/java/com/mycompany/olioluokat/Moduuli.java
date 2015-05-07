@@ -5,8 +5,10 @@
  */
 package com.mycompany.olioluokat;
 
+import com.mycompany.DAO.SessioDAO;
 import com.mycompany.käsittelijät.KysymystenKäsittelijä;
 import com.mycompany.käsittelijät.VastaustenKäsittelijä;
+import java.util.ArrayList;
 
 /**
  *
@@ -14,17 +16,29 @@ import com.mycompany.käsittelijät.VastaustenKäsittelijä;
  */
 public class Moduuli {
     private KysymystenKäsittelijä k;
-    private VastaustenKäsittelijä v;
     private String nimi;
+    private String vastaustiedosto;
+    private ArrayList<Sessio> sessiot;
     
     public Moduuli(String nimi, String kysymystiedosto, String vastaustiedosto){
         this.k = new KysymystenKäsittelijä(kysymystiedosto);
-        this.v = new VastaustenKäsittelijä(vastaustiedosto, this.k);
+        this.vastaustiedosto = vastaustiedosto;
+        this.sessiot = new ArrayList<Sessio>();
         this.nimi = nimi;
+        SessioDAO.lataaSessiot(this);
+    }
+    
+    public void lisääSessio(Sessio s){
+        this.sessiot.add(s);
+        SessioDAO.tallennaSessiot(this);
     }
     
     public String getNimi(){
         return this.nimi;
+    }
+    
+    public String getVastausTiedostonnimi(){
+        return this.vastaustiedosto;
     }
     
     public KysymystenKäsittelijä getKysymystenKäsittelijä(){
@@ -37,6 +51,10 @@ public class Moduuli {
     
     public void lisääKysymys(int kysymysId, String kuvaus, String oikeavastaus){
         k.lisääKysymys(kysymysId, kuvaus, oikeavastaus);
+    }
+    
+    public ArrayList<Sessio> getSessiot(){
+        return this.sessiot;
     }
     
 }
