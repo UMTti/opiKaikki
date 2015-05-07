@@ -12,6 +12,7 @@ package com.mycompany.GUI;
 import com.mycompany.olioluokat.Moduuli;
 import java.awt.Container;
 import java.awt.GridLayout;
+import java.util.ArrayList;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -39,8 +40,15 @@ public class ModuuliPanel extends JPanel {
         JButton aloitusNappi = new JButton("Aloita kierros");
         KierroksenAloitusKuuntelija aloituskuuntelija = new KierroksenAloitusKuuntelija(m, container);
         aloitusNappi.addActionListener(aloituskuuntelija);
+        
+        JButton backNappi = new JButton("Takaisin päävalikkoon");
+        BackNappiKuuntelija bäkkikuuntelija = new BackNappiKuuntelija(container);
+        backNappi.addActionListener(bäkkikuuntelija);
+        
         container.add(moduulinNimi);
         container.add(nappi);
         container.add(aloitusNappi);
+        container.add(backNappi);
     }
+    
 }

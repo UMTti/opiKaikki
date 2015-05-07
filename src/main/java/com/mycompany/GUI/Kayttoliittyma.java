@@ -40,30 +40,12 @@ public class Kayttoliittyma implements Runnable {
     private void luoKomponentit(Container container) {
         BoxLayout layout = new BoxLayout(container, BoxLayout.Y_AXIS);
         container.setLayout(layout);
-
-        ArrayList<Moduuli> moduulit = luoModuulit();
-        for(Moduuli m: moduulit){
-            JButton nappi = new JButton(m.getNimi());
-            ModuulinKlikkausKuuntelija kuuntelija = new ModuulinKlikkausKuuntelija(m, container);
-            nappi.addActionListener(kuuntelija);
-            container.add(nappi);
-            
-        }
+        container.add(new PääValikkoPanel(container), BorderLayout.SOUTH);     
     }
 
     public JFrame getFrame() {
         return frame;
     }
 
-    public static ArrayList<Moduuli> luoModuulit() {
-        ArrayList<Moduuli> moduulit = new ArrayList<Moduuli>();
-        Moduuli K = new Moduuli("K-moduuli", "src/k.txt", "src/kvastaukset.txt");
-        moduulit.add(K);
-        Moduuli t1 = new Moduuli("T1-moduuli", "src/tmoduuli.txt", "src/tmoduulivastaukset.txt");
-        moduulit.add(t1);
-        Moduuli t2 = new Moduuli("T2-moduuli", "src/t2moduuli.txt", "src/t2moduulivastaukset.txt");
-        moduulit.add(t2);
-        return moduulit;
-    }
 
 }

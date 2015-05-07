@@ -1,1 +1,2 @@
 1;Kysymys;E
+2;Mikä on ohtu miniprojektimme ryhmän nimi;DROP table group

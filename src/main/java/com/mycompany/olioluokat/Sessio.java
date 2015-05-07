@@ -5,6 +5,7 @@
  */
 package com.mycompany.olioluokat;
 
+import com.mycompany.DAO.SessioDAO;
 import com.mycompany.käsittelijät.KysymystenKäsittelijä;
 import com.mycompany.käsittelijät.VastaustenKäsittelijä;
 import java.util.ArrayList;
@@ -44,6 +45,11 @@ public class Sessio {
     
     public ArrayList<Vastaus> getVastaukset(){
         return this.vastaukset;
+    }
+    
+    public void tallennaSessio(){
+        System.out.println();
+        SessioDAO.tallennaSessiot(m);
     }
      
 }

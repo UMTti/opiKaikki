@@ -49,6 +49,8 @@ public class SeuraavaKysymysKuuntelija implements ActionListener {
         if(this.indeksi <= this.kysymykset.size() - 1){
             container.add(new KysymysPanel(this.s, this.container, this.kysymykset, this.indeksi), BorderLayout.SOUTH);
         } else {
+            this.s.getModuuli().lisääSessio(this.s);
+            this.s.tallennaSessio();
             container.add(new ModuuliPanel(this.s.getModuuli(), this.container), BorderLayout.SOUTH);
         }
         
