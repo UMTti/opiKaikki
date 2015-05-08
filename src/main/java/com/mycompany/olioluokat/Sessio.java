@@ -30,7 +30,6 @@ public class Sessio {
     }
     
     public void lisääVastaus(int kysymysId, String vastaus){
-        System.out.println("Lisätään vastausta: " + kysymysId + " " + vastaus);
         Kysymys ky = k.getKysymykset().get(kysymysId);
         if(ky == null){
             System.out.println("Vastaukselle ei ole kysymystä");
@@ -46,7 +45,7 @@ public class Sessio {
     
     public void tallennaSessio(){
         System.out.println();
-        SessioDAO.tallennaSessiot(m);
+        this.m.tallennaSessiot();
     }
      
 }

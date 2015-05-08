@@ -12,6 +12,7 @@ package com.mycompany.GUI;
 import com.mycompany.olioluokat.Kysymys;
 import com.mycompany.olioluokat.Moduuli;
 import com.mycompany.olioluokat.Sessio;
+import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.GridLayout;
 import java.util.ArrayList;
@@ -29,18 +30,27 @@ public class PääValikkoPanel extends JPanel {
     private ArrayList<Moduuli> moduulit;
     
     public PääValikkoPanel(Container container) {
-        super(new GridLayout(1, 3));
+        super(new BorderLayout());
         this.container = container;
         this.moduulit = luoModuulit();
         luoKomponentit();
     }
 
     private void luoKomponentit() {
+        int i = 0;
         for(Moduuli m: moduulit){
             JButton nappi = new JButton(m.getNimi());
             ModuulinKlikkausKuuntelija kuuntelija = new ModuulinKlikkausKuuntelija(m, container);
             nappi.addActionListener(kuuntelija);
-            container.add(nappi);      
+            if(i == 0){
+                container.add(nappi, BorderLayout.WEST);
+                i++;
+            } else if(i == 1){
+                container.add(nappi, BorderLayout.CENTER);
+                i++;
+            } else if(i == 2){
+                container.add(nappi, BorderLayout.EAST);
+            }   
         }
     }
     

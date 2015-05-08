@@ -38,8 +38,8 @@ public class Kayttoliittyma implements Runnable {
     }
 
     private void luoKomponentit(Container container) {
-        BoxLayout layout = new BoxLayout(container, BoxLayout.Y_AXIS);
-        container.setLayout(layout);
+        //BoxLayout layout = new BoxLayout(container, BoxLayout.Y_AXIS);
+        container.setLayout(new BorderLayout());
         container.add(new PääValikkoPanel(container), BorderLayout.SOUTH);     
     }
 

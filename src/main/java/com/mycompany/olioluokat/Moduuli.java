@@ -27,8 +27,15 @@ public class Moduuli {
         SessioDAO.lataaSessiot(this);
     }
     
+    public void tyhjennäSessiot(){
+        this.sessiot = new ArrayList<Sessio>();
+    }
+    
     public void lisääSessio(Sessio s){
         this.sessiot.add(s);
+    }
+    
+    public void tallennaSessiot(){
         SessioDAO.tallennaSessiot(this);
     }
     

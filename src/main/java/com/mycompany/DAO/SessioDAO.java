@@ -19,8 +19,8 @@ import java.util.Scanner;
  * @author pihla
  */
 public class SessioDAO {
-    
-    public static void lataaSessiot(Moduuli m){
+
+    public static void lataaSessiot(Moduuli m) {
         Scanner lukija;
         try {
             System.out.println(m.getVastausTiedostonnimi());
@@ -29,25 +29,32 @@ public class SessioDAO {
             System.out.println("Tiedostoa ei löytynyt");
             return;
         }
+        lueSessiot(lukija, m);
+    }
+
+    public static void lueSessiot(Scanner lukija, Moduuli m) {
         Sessio uusi = new Sessio(m, m.getVastausTiedostonnimi(), m.getKysymystenKäsittelijä());
-        while(lukija.hasNextLine()){
+        while (lukija.hasNextLine()) {
             String rivi = lukija.nextLine();
-            if(rivi.contains("...")){
+            System.out.println("Rivi: " + rivi);
+            if (rivi.contains("...")) {
                 m.lisääSessio(uusi);
                 uusi = new Sessio(m, m.getVastausTiedostonnimi(), m.getKysymystenKäsittelijä());
-                continue;
+            } else {
+                String[] tiedot = rivi.split(";");
+                uusi.lisääVastaus(Integer.parseInt(tiedot[0]), tiedot[1]);
             }
-            String[] tiedot = rivi.split(";");
-            uusi.lisääVastaus(Integer.parseInt(tiedot[0]), tiedot[1]);
+            System.out.println(lukija.hasNextLine());
         }
+        lukija.close();
     }
-    
-    public static void tallennaSessiot(Moduuli m){
+
+    public static void tallennaSessiot(Moduuli m) {
         FileWriter kirjoittaja;
         try {
             kirjoittaja = new FileWriter(m.getVastausTiedostonnimi());
-            for(Sessio s: m.getSessiot()){
-                for(Vastaus va: s.getVastaukset()){
+            for (Sessio s : m.getSessiot()) {
+                for (Vastaus va : s.getVastaukset()) {
                     kirjoittaja.write(va.getKysymys().getId() + ";" + va.getVastaus() + "\n");
                 }
                 kirjoittaja.write("..." + "\n");
@@ -57,4 +64,5 @@ public class SessioDAO {
             System.out.println("Kirjoitus epäonnistui. " + ex);
         }
     }
+
 }

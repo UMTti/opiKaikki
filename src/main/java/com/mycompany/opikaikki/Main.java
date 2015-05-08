@@ -21,13 +21,6 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        /*KysymystenKäsittelijä k = new KysymystenKäsittelijä("src/tmoduuli.txt");
-        k.tulostaKysymykset();
-        k.lisääKysymys("neljas", "T");
-        k.tallennaKysymykset();
-        VastaustenKäsittelijä v = new VastaustenKäsittelijä("src/tmoduulivastaukset.txt", k);
-        v.lisääVastaus(2, "T");
-        v.tallennaVastaukset();*/
         Kayttoliittyma kayttoliittyma = new Kayttoliittyma();
         SwingUtilities.invokeLater(kayttoliittyma);
     }

@@ -33,6 +33,7 @@ public class BackNappiKuuntelija implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         container.removeAll();
+        container.setLayout(new BorderLayout());
         container.add(new PääValikkoPanel(this.container), BorderLayout.SOUTH);
 
         container.validate();

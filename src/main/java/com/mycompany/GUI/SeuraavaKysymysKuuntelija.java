@@ -46,6 +46,12 @@ public class SeuraavaKysymysKuuntelija implements ActionListener {
         container.removeAll();
         this.indeksi++;
         
+        this.valitseSeuraavaEventti();
+        container.validate();
+        container.repaint();
+    }
+    
+    public void valitseSeuraavaEventti(){
         if(this.indeksi <= this.kysymykset.size() - 1){
             container.add(new KysymysPanel(this.s, this.container, this.kysymykset, this.indeksi), BorderLayout.SOUTH);
         } else {
@@ -53,8 +59,5 @@ public class SeuraavaKysymysKuuntelija implements ActionListener {
             this.s.tallennaSessio();
             container.add(new ModuuliPanel(this.s.getModuuli(), this.container), BorderLayout.SOUTH);
         }
-        
-        container.validate();
-        container.repaint();
     }
 }

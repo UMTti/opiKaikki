@@ -28,6 +28,10 @@ public class KysymysDAO {
             System.out.println("Tiedostoa ei löytynyt");
             return;
         }
+        lueRivit(k, lukija);
+    }
+    
+    public static void lueRivit(KysymystenKäsittelijä k, Scanner lukija){
         while(lukija.hasNextLine()){
             String rivi = lukija.nextLine();
             String[] tiedot = rivi.split(";");
