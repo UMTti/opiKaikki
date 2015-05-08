@@ -60,8 +60,8 @@ public class SessioDAO {
                 kirjoittaja.write("..." + "\n");
             }
             kirjoittaja.close();
-        } catch (IOException ex) {
-            System.out.println("Kirjoitus epäonnistui. " + ex);
+        } catch (Exception ex) {
+            System.out.println("Kirjoitus epäonnistui.");
         }
     }
 

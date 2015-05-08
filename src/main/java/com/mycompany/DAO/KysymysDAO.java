@@ -22,7 +22,6 @@ public class KysymysDAO {
     public static void lataaKysymykset(KysymystenKäsittelijä k){
         Scanner lukija;
         try {
-            System.out.println(k.getTiedostonimi());
             lukija = new Scanner(new File(k.getTiedostonimi()));
         } catch (FileNotFoundException ex) {
             System.out.println("Tiedostoa ei löytynyt");

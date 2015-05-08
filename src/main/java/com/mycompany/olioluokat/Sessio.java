@@ -44,7 +44,6 @@ public class Sessio {
     }
     
     public void tallennaSessio(){
-        System.out.println();
         this.m.tallennaSessiot();
     }
      
