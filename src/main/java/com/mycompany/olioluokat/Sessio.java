@@ -40,14 +40,14 @@ public class Sessio {
         return lisääKysymyksetHuomioidenVäärät();
     }
     
-    public ArrayList<Kysymys> lisääKysymyksetHuomioidenVäärät(){
+    private ArrayList<Kysymys> lisääKysymyksetHuomioidenVäärät(){
         Sessio viimeisin = this.m.getSessiot().get(this.m.getSessiot().size() - 1);
         ArrayList<Integer> viimeisimmänVäärät = viimeisin.kerroVäärinMenneet();
         ArrayList<Kysymys> kysymykset = new ArrayList<Kysymys>();
         return haeKysymykset(kysymykset, viimeisimmänVäärät);
     }
     
-    public ArrayList<Kysymys> haeKysymykset(ArrayList<Kysymys> kysymykset, ArrayList<Integer> viimeisimmänVäärät){
+    private ArrayList<Kysymys> haeKysymykset(ArrayList<Kysymys> kysymykset, ArrayList<Integer> viimeisimmänVäärät){
         for(int i: this.m.getKysymystenKäsittelijä().getKysymykset().keySet()){
             Kysymys k = this.m.getKysymystenKäsittelijä().getKysymykset().get(i);
             kysymykset.add(k);
@@ -58,7 +58,7 @@ public class Sessio {
         return kysymykset;
     }
     
-    public ArrayList<Kysymys> lisääKysymykset(){
+    private ArrayList<Kysymys> lisääKysymykset(){
         ArrayList<Kysymys> kysymykset = new ArrayList<Kysymys>();
         for(int i: this.m.getKysymystenKäsittelijä().getKysymykset().keySet()){
             Kysymys k = this.m.getKysymystenKäsittelijä().getKysymykset().get(i);

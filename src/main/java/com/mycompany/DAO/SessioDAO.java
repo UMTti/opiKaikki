@@ -40,6 +40,11 @@ public class SessioDAO {
                 uusi = new Sessio(m, m.getVastausTiedostonnimi(), m.getKysymystenKäsittelijä());
             } else {
                 String[] tiedot = rivi.split(";");
+                try {
+                    Integer.parseInt(tiedot[0]);
+                } catch (NumberFormatException e) {
+                    continue;
+                }
                 uusi.lisääVastaus(Integer.parseInt(tiedot[0]), tiedot[1]);
             }
         }
