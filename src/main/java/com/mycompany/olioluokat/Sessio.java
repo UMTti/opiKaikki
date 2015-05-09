@@ -29,6 +29,10 @@ public class Sessio {
         return this.m;
     }
     
+    public KysymystenKäsittelijä getKysymystenKäsittelijä(){
+        return this.k;
+    }
+    
     public ArrayList<Kysymys> annaKysymyksetAlussa(){
         if(this.m.getSessiot().size() == 0){
             return lisääKysymykset();

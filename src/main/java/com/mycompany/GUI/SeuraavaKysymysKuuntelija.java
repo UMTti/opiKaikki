@@ -69,7 +69,7 @@ public class SeuraavaKysymysKuuntelija implements ActionListener {
             this.s.getModuuli().lisääSessio(this.s);
             this.s.tallennaSessio();
             System.out.println(this.s.kerroVäärinMenneet());
-            container.add(new ModuuliPanel(this.s.getModuuli(), this.container), BorderLayout.SOUTH);
+            container.add(new MitenMeniPanel(this.s, this.s.getModuuli(), this.container, this.kysymykset), BorderLayout.SOUTH);
         }
     }
 }
