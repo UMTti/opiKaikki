@@ -55,10 +55,12 @@ public class KysymysPanel extends JPanel {
         JButton lisaaNappi = new JButton("Vastaus valmis!");
         SeuraavaKysymysKuuntelija kuuntelija = new SeuraavaKysymysKuuntelija(this.s, container, this.kysymykset, this.indeksi, tosiNappi, epätosiNappi);
         lisaaNappi.addActionListener(kuuntelija);
+        JLabel jäljellä = new JLabel("Jäljellä vielä " + (this.kysymykset.size() - indeksi - 1) + " kysymystä");
         this.container.add(kysymysKuvaus);
         this.container.add(vastausTeksti);
         this.container.add(epätosiNappi);
         this.container.add(tosiNappi);
+        this.container.add(jäljellä);
         this.container.add(lisaaNappi);
     }
 }

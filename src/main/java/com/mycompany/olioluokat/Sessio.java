@@ -36,8 +36,7 @@ public class Sessio {
     public ArrayList<Kysymys> annaKysymyksetAlussa(){
         if(this.m.getSessiot().size() == 0){
             return lisääKysymykset();
-        }
-        
+        } 
         return lisääKysymyksetHuomioidenVäärät();
     }
     
