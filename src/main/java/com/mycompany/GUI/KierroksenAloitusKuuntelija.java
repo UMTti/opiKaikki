@@ -34,10 +34,7 @@ public class KierroksenAloitusKuuntelija implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         Sessio uusi = new Sessio(this.m, this.m.getVastausTiedostonnimi(), this.m.getKysymystenKäsittelijä());
-        ArrayList<Kysymys> kysymykset = new ArrayList<Kysymys>();
-        for(int i: this.m.getKysymystenKäsittelijä().getKysymykset().keySet()){
-            kysymykset.add(this.m.getKysymystenKäsittelijä().getKysymykset().get(i));
-        }
+        ArrayList<Kysymys> kysymykset = uusi.annaKysymyksetAlussa();
         container.removeAll();
         container.add(new KysymysPanel(uusi, this.container, kysymykset, 0), BorderLayout.SOUTH);
         container.validate();
