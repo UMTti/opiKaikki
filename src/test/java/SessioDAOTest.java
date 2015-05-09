@@ -54,8 +54,8 @@ public class SessioDAOTest {
 
     @Test
     public void testaaTallennusJaLataus() {
-        String kysymystiedosto = "src/tmoduuli.txt";
-        String vastaustiedosto = "src/tmoduulivastaukset.txt";
+        String kysymystiedosto = "src/txttiedostot/tmoduuli.txt";
+        String vastaustiedosto = "src/txttiedostot/tmoduulivastaukset.txt";
         Moduuli K = new Moduuli("K-moduuli", kysymystiedosto, vastaustiedosto);
         Sessio uusi = new Sessio(K, vastaustiedosto, new KysymystenKäsittelijä(kysymystiedosto));
         uusi.lisääVastaus(1, "UusiVastaus");

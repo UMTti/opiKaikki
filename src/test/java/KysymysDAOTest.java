@@ -47,10 +47,10 @@ public class KysymysDAOTest {
     
     @Test
     public void testaaTallennusjaLataus(){
-        KysymystenKäsittelijä k = new KysymystenKäsittelijä("src/tmoduuli.txt");
+        KysymystenKäsittelijä k = new KysymystenKäsittelijä("src/txttiedostot/tmoduuli.txt");
         HashMap<Integer, Kysymys> alussa = k.getKysymykset();
         k.tallennaKysymykset();
-        k = new KysymystenKäsittelijä("src/tmoduuli.txt");
+        k = new KysymystenKäsittelijä("src/txttiedostot/tmoduuli.txt");
         HashMap<Integer, Kysymys> lopussa = k.getKysymykset();
         assertEquals(lopussa.size(), alussa.size());
     }

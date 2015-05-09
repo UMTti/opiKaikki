@@ -17,6 +17,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import javax.swing.JTextField;
 import java.util.Map.Entry;
+import javax.swing.JRadioButton;
 
 /**
  *
@@ -27,14 +28,16 @@ public class SeuraavaKysymysKuuntelija implements ActionListener {
     private Container container;
     private Sessio s;
     private ArrayList<Kysymys> kysymykset;
-    private JTextField vastausKentta;
+    private JRadioButton tosiNappi;
+    private JRadioButton epätosiNappi;
     private int indeksi;
     
 
-    public SeuraavaKysymysKuuntelija(Sessio s, Container container, ArrayList<Kysymys> kysymykset, int indeksi, JTextField vastausKentta) {
+    public SeuraavaKysymysKuuntelija(Sessio s, Container container, ArrayList<Kysymys> kysymykset, int indeksi, JRadioButton tosiNappi, JRadioButton epätosiNappi) {
         this.kysymykset = kysymykset;
         this.indeksi = indeksi;
-        this.vastausKentta = vastausKentta;
+        this.tosiNappi = tosiNappi;
+        this.epätosiNappi = epätosiNappi;
         this.s = s;
         this.container = container;
     }
@@ -42,7 +45,15 @@ public class SeuraavaKysymysKuuntelija implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         Kysymys k = this.kysymykset.get(this.indeksi);
-        this.s.lisääVastaus(k.getId(), vastausKentta.getText());
+        boolean tosi = tosiNappi.isSelected();
+        boolean epätosi = epätosiNappi.isSelected();
+        String vastaus = "Vastaamaton";
+        if(tosi){
+            vastaus = "T";
+        } else if(epätosi){
+            vastaus = "E";
+        }
+        this.s.lisääVastaus(k.getId(), vastaus);
         container.removeAll();
         this.indeksi++;
         
