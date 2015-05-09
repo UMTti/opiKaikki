@@ -23,7 +23,6 @@ public class SessioDAO {
     public static void lataaSessiot(Moduuli m) {
         Scanner lukija;
         try {
-            System.out.println(m.getVastausTiedostonnimi());
             lukija = new Scanner(new File(m.getVastausTiedostonnimi()));
         } catch (FileNotFoundException ex) {
             System.out.println("Tiedostoa ei löytynyt");
@@ -36,7 +35,6 @@ public class SessioDAO {
         Sessio uusi = new Sessio(m, m.getVastausTiedostonnimi(), m.getKysymystenKäsittelijä());
         while (lukija.hasNextLine()) {
             String rivi = lukija.nextLine();
-            System.out.println("Rivi: " + rivi);
             if (rivi.contains("...")) {
                 m.lisääSessio(uusi);
                 uusi = new Sessio(m, m.getVastausTiedostonnimi(), m.getKysymystenKäsittelijä());
@@ -44,7 +42,6 @@ public class SessioDAO {
                 String[] tiedot = rivi.split(";");
                 uusi.lisääVastaus(Integer.parseInt(tiedot[0]), tiedot[1]);
             }
-            System.out.println(lukija.hasNextLine());
         }
         lukija.close();
     }
