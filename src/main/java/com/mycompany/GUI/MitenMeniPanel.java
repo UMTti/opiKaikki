@@ -7,10 +7,12 @@ package com.mycompany.GUI;
 import com.mycompany.olioluokat.Kysymys;
 import com.mycompany.olioluokat.Moduuli;
 import com.mycompany.olioluokat.Sessio;
+import com.mycompany.olioluokat.Vastaus;
 import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.GridLayout;
 import java.util.ArrayList;
+import java.util.HashMap;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -41,6 +43,14 @@ public class MitenMeniPanel extends JPanel {
         container.add(koonti);
         container.add(oikein);
         
+        ArrayList<String> aihepiirikoonnit = koontiAihepiireistä();
+        for(String aihepiirikoonti: aihepiirikoonnit){
+            
+            JLabel koontiTeksti = new JLabel(aihepiirikoonti);
+            container.add(koontiTeksti);
+            container.add(new JLabel("\n"));
+        }
+        
         JButton backNappi = new JButton("Takaisin päävalikkoon");
         BackNappiKuuntelija bäkkikuuntelija = new BackNappiKuuntelija(container);
         backNappi.addActionListener(bäkkikuuntelija);
@@ -50,6 +60,35 @@ public class MitenMeniPanel extends JPanel {
     
     private int montakoOikein(){
         return this.kysymykset.size() - this.s.kerroVäärinMenneet().size();
+    }
+    
+    private ArrayList<String> koontiAihepiireistä(){
+        HashMap<String, int[]> aihepiirit = luoAihepiiriHashmap();
+        ArrayList<String> palautus = new ArrayList<String>();
+        
+        for(String piiri : aihepiirit.keySet()){
+            int[] määrät = aihepiirit.get(piiri);
+            int prosentit = (int) Math.floor(((double) määrät[0] / (double) määrät[1]) * 100);
+            String koonti = "Aihepiiristä " + piiri + " sait " + prosentit + " prosenttia oikein";
+            palautus.add(koonti);
+        }
+        return palautus;
+    }
+    
+    private HashMap<String, int[]> luoAihepiiriHashmap(){
+        HashMap<String, int[]> aihepiirit = new HashMap<String, int[]>();
+        for(Vastaus v: this.s.getVastaukset()){
+            String kysymyksenaihepiiri = v.getKysymys().getAihepiiri();
+            if(aihepiirit.get(kysymyksenaihepiiri) == null){
+                aihepiirit.put(kysymyksenaihepiiri, new int[2]);
+            }
+            int[] määrät = aihepiirit.get(kysymyksenaihepiiri);
+            määrät[1]++;
+            if(v.getVastaus().equals(v.getKysymys().getOikeavastaus())){
+                määrät[0]++;
+            }
+        }
+        return aihepiirit;
     }
     
 }
