@@ -1,17 +1,1 @@
-1;neljas;T
-2;neljas;T
-3;neljas;T
-4;neljas;T
-5;neljas;T
-6;neljas;T
-7;neljas;T
-8;neljas;T
-9;neljas;T
-10;neljas;T
-11;neljas;T
-12;neljas;T
-13;E;Pitäisi mennä tiedostoon
-14;No nyt;meneekö
-15;dddd;juuhh
-16;asdd;E
-17;asd;T
+1;neljas;T;Numerot

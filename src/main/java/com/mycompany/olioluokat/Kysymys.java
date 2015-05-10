@@ -14,11 +14,13 @@ public class Kysymys {
     private int id;
     private String kuvaus;
     private String oikeavastaus;
+    private String aihepiiri;
     
-    public Kysymys(int id, String kuvaus, String oikeavastaus){
+    public Kysymys(int id, String kuvaus, String oikeavastaus, String aihepiiri){
         this.id = id;
         this.kuvaus = kuvaus;
         this.oikeavastaus = oikeavastaus;
+        this.aihepiiri = aihepiiri;
     }
     
     public int getId(){
@@ -27,6 +29,10 @@ public class Kysymys {
     
     public String getKuvaus(){
         return this.kuvaus;
+    }
+    
+    public String getAihepiiri(){
+        return this.aihepiiri;
     }
     
     public String getOikeavastaus(){

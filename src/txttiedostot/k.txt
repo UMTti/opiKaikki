@@ -1,3 +1,3 @@
-1;Kysymys;E
-2;Mikä on ohtu miniprojektimme ryhmän nimi;DROP table group
-3;ankka?;T
+1;Kysymys;E;Kysymysaihepiiri
+2;Mikä on ohtu miniprojektimme ryhmän nimi;DROP table group;Miniprojektit
+3;ankka?;T;Ankat

@@ -45,14 +45,12 @@ public class ModuuliPanel extends JPanel {
         BackNappiKuuntelija bäkkikuuntelija = new BackNappiKuuntelija(container);
         backNappi.addActionListener(bäkkikuuntelija);
         
-        
-        
         container.add(moduulinNimi);
-        container.add( new JLabel("\n"));
+        container.add(new JLabel("\n"));
         container.add(nappi);
-        container.add( new JLabel("\n"));
+        container.add(new JLabel("\n"));
         container.add(aloitusNappi);
-        container.add( new JLabel("\n"));
+        container.add(new JLabel("\n"));
         container.add(backNappi);
     }
     

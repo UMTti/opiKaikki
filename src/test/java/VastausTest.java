@@ -40,7 +40,7 @@ public class VastausTest {
     
     @Test
     public void luoVastaus(){
-        Kysymys k = new Kysymys(1, "Tässäpä kysymys", "E");
+        Kysymys k = new Kysymys(1, "Tässäpä kysymys", "E", "");
         Vastaus v = new Vastaus("Tässäpä vastaus", k);
         assertEquals("Tässäpä vastaus", v.getVastaus());
     }

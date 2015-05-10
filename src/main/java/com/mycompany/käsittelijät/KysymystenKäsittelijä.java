@@ -40,14 +40,14 @@ public class KysymystenKäsittelijä {
         return this.kysymykset;
     }
     
-    public void lisääKysymys(String kuvaus, String oikeavastaus){
-        Kysymys uusi = new Kysymys(this.max_id + 1, kuvaus, oikeavastaus);
+    public void lisääKysymys(String kuvaus, String oikeavastaus, String aihepiiri){
+        Kysymys uusi = new Kysymys(this.max_id + 1, kuvaus, oikeavastaus, aihepiiri);
         this.kysymykset.put(uusi.getId(), uusi);
         this.max_id++;
     }
     
-    public void lisääKysymys(int id, String kuvaus, String oikeavastaus){
-        Kysymys uusi = new Kysymys(id, kuvaus, oikeavastaus);
+    public void lisääKysymys(int id, String kuvaus, String oikeavastaus, String aihepiiri){
+        Kysymys uusi = new Kysymys(id, kuvaus, oikeavastaus, aihepiiri);
         this.kysymykset.put(uusi.getId(), uusi);
         this.max_id = Math.max(this.max_id, uusi.getId());
     }

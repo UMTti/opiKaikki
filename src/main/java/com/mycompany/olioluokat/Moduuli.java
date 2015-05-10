@@ -52,11 +52,11 @@ public class Moduuli {
     }
     
     public void lisääKysymys(String kuvaus, String oikeavastaus){
-        k.lisääKysymys(kuvaus, oikeavastaus);
+        k.lisääKysymys(kuvaus, oikeavastaus, "");
     }
     
     public void lisääKysymys(int kysymysId, String kuvaus, String oikeavastaus){
-        k.lisääKysymys(kysymysId, kuvaus, oikeavastaus);
+        k.lisääKysymys(kysymysId, kuvaus, oikeavastaus, "");
     }
     
     public ArrayList<Sessio> getSessiot(){

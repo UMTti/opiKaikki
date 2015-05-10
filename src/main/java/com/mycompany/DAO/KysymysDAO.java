@@ -34,7 +34,7 @@ public class KysymysDAO {
         while(lukija.hasNextLine()){
             String rivi = lukija.nextLine();
             String[] tiedot = rivi.split(";");
-            k.lisääKysymys(Integer.parseInt(tiedot[0]), tiedot[1], tiedot[2]);
+            k.lisääKysymys(Integer.parseInt(tiedot[0]), tiedot[1], tiedot[2], tiedot[3]);
         }
     }
     
@@ -44,7 +44,7 @@ public class KysymysDAO {
             kirjoittaja = new FileWriter(k.getTiedostonimi());
             for(int i: k.getKysymykset().keySet()){
                 Kysymys ky = k.getKysymykset().get(i);
-                kirjoittaja.write(ky.getId() + ";" + ky.getKuvaus() + ";" + ky.getOikeavastaus() + "\n");
+                kirjoittaja.write(ky.getId() + ";" + ky.getKuvaus() + ";" + ky.getOikeavastaus() + ";" + ky.getAihepiiri() + "\n");
             }
             kirjoittaja.close();
         } catch (IOException ex) {

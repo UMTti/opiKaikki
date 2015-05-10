@@ -39,7 +39,7 @@ public class KysymysTest {
     
     @Test
     public void luoKysymys(){
-        Kysymys k = new Kysymys(1, "Tässäpä kysymys", "E");
+        Kysymys k = new Kysymys(1, "Tässäpä kysymys", "E", "");
         assertEquals(k.getOikeavastaus(), "E");
     }
 

@@ -48,14 +48,14 @@ public class KysymystenKäsittelijäTest {
     public void lisaaKysymys(){
         KysymystenKäsittelijä k = new KysymystenKäsittelijä("src/txttiedostot/tmoduuli.txt");
         int koko = k.getKysymykset().size();
-        k.lisääKysymys("tässäpä kysymys", "T");
+        k.lisääKysymys("tässäpä kysymys", "T", "");
         assertEquals(koko+1, k.getKysymykset().size());
     }
     
     @Test
     public void lisaaKysymysKuormitettu(){
         KysymystenKäsittelijä k = new KysymystenKäsittelijä("src/txttiedostot/tmoduuli.txt");
-        k.lisääKysymys(3, "tässäpä kysymys", "T");
+        k.lisääKysymys(3, "tässäpä kysymys", "T", "");
         assertEquals(3, k.getKysymykset().get(3).getId());
     }
     
