@@ -40,10 +40,21 @@ public class KysymystenKäsittelijä {
         return this.kysymykset;
     }
     
+    /**
+     * Kun lisätään kysymys, tallennetaan sen id ja itse kysymys. 
+     * @param kuvaus
+     * @param oikeavastaus
+     * @param aihepiiri
+     */
     public void lisääKysymys(String kuvaus, String oikeavastaus, String aihepiiri){
         Kysymys uusi = new Kysymys(this.max_id + 1, kuvaus, oikeavastaus, aihepiiri);
         this.kysymykset.put(uusi.getId(), uusi);
         this.max_id++;
+    }
+    
+    public void poistaKysymys(int id){
+    	this.kysymykset.remove(id);
+    	this.tallennaKysymykset();
     }
     
     public void lisääKysymys(int id, String kuvaus, String oikeavastaus, String aihepiiri){

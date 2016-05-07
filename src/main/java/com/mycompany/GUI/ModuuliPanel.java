@@ -34,9 +34,15 @@ public class ModuuliPanel extends JPanel {
         BoxLayout layout = new BoxLayout(container, BoxLayout.Y_AXIS);
         container.setLayout(layout);
         JLabel moduulinNimi = new JLabel(this.m.getNimi());
+        
         JButton nappi = new JButton("Lisää kysymys moduuliin");
         KysymyksenLisäysnäkymäKuuntelija kuuntelija = new KysymyksenLisäysnäkymäKuuntelija(m, container);
         nappi.addActionListener(kuuntelija);
+        
+        JButton poistoNappi = new JButton("Poista kysymyksiä moduulista");
+        KysymyksenPoistoNäkymäKuuntelija poistokuuntelija = new KysymyksenPoistoNäkymäKuuntelija(m, container);
+        poistoNappi.addActionListener(poistokuuntelija);
+        
         JButton aloitusNappi = new JButton("Aloita kierros");
         KierroksenAloitusKuuntelija aloituskuuntelija = new KierroksenAloitusKuuntelija(m, container);
         aloitusNappi.addActionListener(aloituskuuntelija);
@@ -48,6 +54,8 @@ public class ModuuliPanel extends JPanel {
         container.add(moduulinNimi);
         container.add(new JLabel("\n"));
         container.add(nappi);
+        container.add(new JLabel("\n"));
+        container.add(poistoNappi);
         container.add(new JLabel("\n"));
         container.add(aloitusNappi);
         container.add(new JLabel("\n"));

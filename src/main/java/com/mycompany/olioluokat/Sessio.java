@@ -81,7 +81,7 @@ public class Sessio {
     public void lisääVastaus(int kysymysId, String vastaus){
         Kysymys ky = k.getKysymykset().get(kysymysId);
         if(ky == null){
-            System.out.println("Vastaukselle ei ole kysymystä");
+        	System.out.println("Kysymystä ei ole enää olemassa.");
             return;
         }
         Vastaus uusi = new Vastaus(vastaus, ky);
