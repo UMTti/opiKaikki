@@ -11,6 +11,7 @@ package com.mycompany.GUI;
  */
 import com.mycompany.olioluokat.Kysymys;
 import com.mycompany.olioluokat.Moduuli;
+import com.mycompany.olioluokat.Pistelista;
 import com.mycompany.olioluokat.Sessio;
 import java.awt.BorderLayout;
 import java.awt.Container;
@@ -52,6 +53,12 @@ public class PääValikkoPanel extends JPanel {
                 container.add(nappi, BorderLayout.EAST);
             }   
         }
+        JButton pistelistanappi = new JButton("Pistelista");
+        Pistelista plista = Pistelista.getInstanssi();
+        PistelistaKuuntelija pistelistakuuntelija = new PistelistaKuuntelija(container, plista);
+        pistelistanappi.addActionListener(pistelistakuuntelija);
+        container.add(pistelistanappi, BorderLayout.NORTH);
+        
     }
     
      public static ArrayList<Moduuli> luoModuulit() {

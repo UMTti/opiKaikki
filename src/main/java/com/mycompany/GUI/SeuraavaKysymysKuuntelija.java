@@ -5,8 +5,10 @@
  */
 package com.mycompany.GUI;
 
+import com.mycompany.DAO.PistelistaDAO;
 import com.mycompany.olioluokat.Kysymys;
 import com.mycompany.olioluokat.Moduuli;
+import com.mycompany.olioluokat.Pistelista;
 import com.mycompany.olioluokat.Sessio;
 import java.awt.BorderLayout;
 import java.awt.Container;

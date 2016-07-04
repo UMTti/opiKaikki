@@ -6,6 +6,7 @@ package com.mycompany.GUI;
  */
 import com.mycompany.olioluokat.Kysymys;
 import com.mycompany.olioluokat.Moduuli;
+import com.mycompany.olioluokat.Pistelista;
 import com.mycompany.olioluokat.Sessio;
 import com.mycompany.olioluokat.Vastaus;
 import java.awt.BorderLayout;
@@ -17,6 +18,7 @@ import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 public class MitenMeniPanel extends JPanel {
 
@@ -43,6 +45,11 @@ public class MitenMeniPanel extends JPanel {
         container.add(koonti);
         container.add(oikein);
         
+        container.add(new JLabel("Anna nimesi pistelistaa varten: "));
+        JTextField nimikenttä = new JTextField(20);
+        container.add(nimikenttä);
+        Pistelista.getInstanssi().lisääPiste("pelaaja", 10);
+        
         ArrayList<String> oikeinMenneet = vastasitOikeinNäihinKysymyksiin();
         container.add(new JLabel("Vastasit oikein kysymyksiin: \n"));
         for(String kysymys: oikeinMenneet){
@@ -60,9 +67,13 @@ public class MitenMeniPanel extends JPanel {
             container.add(new JLabel("\n"));
         }
         
-        JButton backNappi = new JButton("Takaisin päävalikkoon");
-        BackNappiKuuntelija bäkkikuuntelija = new BackNappiKuuntelija(container);
-        backNappi.addActionListener(bäkkikuuntelija);
+        JButton backNappi = new JButton("Lisää pisteet pistelistaan");
+        double prosent = (double) montakoOikein() / (double) this.kysymykset.size();
+        System.out.println(prosent);
+        int prosentti = (int) Math.round(prosent * 100);
+        System.out.println(prosentti);
+        SiirryPistelistaanKuuntelija pistelistakuuntelija = new SiirryPistelistaanKuuntelija(container, Pistelista.getInstanssi(), nimikenttä, prosentti);
+        backNappi.addActionListener(pistelistakuuntelija);
         
         container.add(backNappi);
     }
