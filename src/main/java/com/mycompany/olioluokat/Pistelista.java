@@ -23,6 +23,10 @@ public class Pistelista {
 		return instanssi.tiedosto;
 	}
 	
+	public void setTiedosto(String tiedosto){
+		this.tiedosto = tiedosto;
+	}
+	
 	public void lisääPiste(String pelaaja, int uudetpisteet){
 		if(this.pisteet.containsKey(pelaaja)){
 			int nykyisetpisteet = this.pisteet.get(pelaaja);

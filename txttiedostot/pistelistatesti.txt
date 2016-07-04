@@ -1,6 +1,7 @@
 ,0
 huono,0
 pihla,2
+Pelaaja,2
 nonniii,0
 parass,100
 asdasdasdasd,0

@@ -42,6 +42,22 @@ public class KysymysTest {
         Kysymys k = new Kysymys(1, "Tässäpä kysymys", "E", "");
         assertEquals(k.getOikeavastaus(), "E");
     }
+    
+    @Test
+    public void setKuvaus(){
+        Kysymys k = new Kysymys(1, "Tässäpä kysymys", "E", "");
+        k.setKuvaus("uusi");
+        assertEquals(k.getKuvaus(), "E");
+    }
+    
+    @Test
+    public void setVastaus(){
+        Kysymys k = new Kysymys(1, "Tässäpä kysymys", "E", "");
+        k.setOikeaVastaus("uusi");
+        assertEquals(k.getOikeavastaus(), "uusi");
+    }
+    
+    
 
     // TODO add test methods here.
     // The methods must be annotated with annotation @Test. For example:

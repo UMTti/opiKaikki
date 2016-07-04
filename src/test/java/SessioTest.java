@@ -52,37 +52,44 @@ public class SessioTest {
     
     @Test
     public void lisääVastausJolleEiKysymystä(){
-        String kysymystiedosto = "src/txttiedostot/tmoduuli.txt";
-        String vastaustiedosto = "src/txttiedostot/tmoduulivastaukset.txt";
+        String kysymystiedosto = "txttiedostot/testimoduuli.txt";
+        String vastaustiedosto = "txttiedostot/testimoduulivastaukset.txt";
         Moduuli K = new Moduuli("K-moduuli", kysymystiedosto, vastaustiedosto);
         Sessio uusi = new Sessio(K, vastaustiedosto, new KysymystenKäsittelijä(kysymystiedosto));
         uusi.lisääVastaus(9000, "UusiVastaus");
         assertTrue(outContent.toString().contains("Kysymystä ei ole enää olemassa."));
     }
     
-    /*@Test
-    public void lisääKysymyksetHuomioiVäärinmenneet(){
-        String kysymystiedosto = "src/txttiedostot/t2moduuli.txt";
-        String vastaustiedosto = "src/txttiedostot/testimoduulivastaukset.txt";
+    @Test
+    public void annaKysymyksetAlussa(){
+        String kysymystiedosto = "txttiedostot/testimoduuli.txt";
+        String vastaustiedosto = "txttiedostot/testimoduulivastaukset.txt";
         Moduuli K = new Moduuli("K-moduuli", kysymystiedosto, vastaustiedosto);
         Sessio uusi = new Sessio(K, vastaustiedosto, new KysymystenKäsittelijä(kysymystiedosto));
         ArrayList<Kysymys> kysymykset = uusi.annaKysymyksetAlussa();
-        assertEquals(3, kysymykset.size());
-    }*/
+        assertTrue(kysymykset.size() > 0);
+        uusi.tallennaSessio();
+    }
+    
+    
+    
+    @Test
+    public void testaaGetterit(){
+    	String kysymystiedosto = "txttiedostot/testimoduuli.txt";
+        String vastaustiedosto = "txttiedostot/testimoduulivastaukset.txt";
+        Moduuli K = new Moduuli("K-moduuli", kysymystiedosto, vastaustiedosto);
+        Sessio uusi = new Sessio(K, vastaustiedosto, new KysymystenKäsittelijä(kysymystiedosto));
+        assertEquals(uusi.getModuuli().getNimi(), "K-moduuli");
+        assertNotNull(uusi.getKysymystenKäsittelijä());
+    }
     
     @Test
     public void lisääKysymyksetTyhjästäTiedostosta(){
-        String kysymystiedosto = "src/txttiedostot/t2moduuli.txt";
-        String vastaustiedosto = "src/txttiedostot/tyhjavastaukset.txt";
+        String kysymystiedosto = "txttiedostot/t2moduuli.txt";
+        String vastaustiedosto = "txttiedostot/tyhjavastaukset.txt";
         Moduuli K = new Moduuli("K-moduuli", kysymystiedosto, vastaustiedosto);
         Sessio uusi = new Sessio(K, vastaustiedosto, new KysymystenKäsittelijä(kysymystiedosto));
         ArrayList<Kysymys> kysymykset = uusi.annaKysymyksetAlussa();
-        assertEquals(3, kysymykset.size());
     }
 
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
 }
