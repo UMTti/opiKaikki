@@ -27,6 +27,14 @@ public class Kysymys {
         return this.id;
     }
     
+    public void setKuvaus(String uusi){
+    	this.kuvaus = uusi;
+    }
+    
+    public void setOikeaVastaus(String uusi){
+    	this.oikeavastaus = uusi;
+    }
+    
     public String getKuvaus(){
         return this.kuvaus;
     }

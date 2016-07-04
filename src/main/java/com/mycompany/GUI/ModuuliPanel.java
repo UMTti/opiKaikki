@@ -43,6 +43,10 @@ public class ModuuliPanel extends JPanel {
         KysymyksenPoistoNäkymäKuuntelija poistokuuntelija = new KysymyksenPoistoNäkymäKuuntelija(m, container);
         poistoNappi.addActionListener(poistokuuntelija);
         
+        JButton muokkaaKysymyksiäNappi = new JButton("Muokkaa kysymyksiä");
+        KysymyksenMuokkausNäkymäKuuntelija muokkauskuuntelija = new KysymyksenMuokkausNäkymäKuuntelija(m, container);
+        muokkaaKysymyksiäNappi.addActionListener(muokkauskuuntelija);
+        
         JButton aloitusNappi = new JButton("Aloita kierros");
         KierroksenAloitusKuuntelija aloituskuuntelija = new KierroksenAloitusKuuntelija(m, container);
         aloitusNappi.addActionListener(aloituskuuntelija);
@@ -56,6 +60,8 @@ public class ModuuliPanel extends JPanel {
         container.add(nappi);
         container.add(new JLabel("\n"));
         container.add(poistoNappi);
+        container.add(new JLabel("\n"));
+        container.add(muokkaaKysymyksiäNappi);
         container.add(new JLabel("\n"));
         container.add(aloitusNappi);
         container.add(new JLabel("\n"));

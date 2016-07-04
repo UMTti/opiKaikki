@@ -57,6 +57,16 @@ public class KysymystenKäsittelijä {
     	this.tallennaKysymykset();
     }
     
+    public void muokkaaKysymystä(int id, String uusi){
+    	this.kysymykset.get(id).setKuvaus(uusi);
+    	this.tallennaKysymykset();
+    }
+    
+    public void muokkaaVastausta(int id, String uusi){
+    	this.kysymykset.get(id).setOikeaVastaus(uusi);
+    	this.tallennaKysymykset();
+    }
+    
     public void lisääKysymys(int id, String kuvaus, String oikeavastaus, String aihepiiri){
         Kysymys uusi = new Kysymys(id, kuvaus, oikeavastaus, aihepiiri);
         this.kysymykset.put(uusi.getId(), uusi);
