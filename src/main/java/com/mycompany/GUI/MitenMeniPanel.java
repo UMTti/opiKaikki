@@ -69,9 +69,7 @@ public class MitenMeniPanel extends JPanel {
         
         JButton backNappi = new JButton("Lisää pisteet pistelistaan");
         double prosent = (double) montakoOikein() / (double) this.kysymykset.size();
-        System.out.println(prosent);
         int prosentti = (int) Math.round(prosent * 100);
-        System.out.println(prosentti);
         SiirryPistelistaanKuuntelija pistelistakuuntelija = new SiirryPistelistaanKuuntelija(container, Pistelista.getInstanssi(), nimikenttä, prosentti);
         backNappi.addActionListener(pistelistakuuntelija);
         

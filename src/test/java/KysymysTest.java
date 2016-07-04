@@ -47,7 +47,7 @@ public class KysymysTest {
     public void setKuvaus(){
         Kysymys k = new Kysymys(1, "Tässäpä kysymys", "E", "");
         k.setKuvaus("uusi");
-        assertEquals(k.getKuvaus(), "E");
+        assertEquals(k.getKuvaus(), "uusi");
     }
     
     @Test

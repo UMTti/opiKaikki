@@ -1,11 +1,13 @@
-,0
+,100
 huono,0
-pihla,2
 nonniii,0
-parass,100
-asdasdasdasd,0
-asddd,0
-pelaaja,10
-nonnig ,0
 j,100
 50prossaa,50
+asdd,50
+asddddd,100
+pihla,2
+asdasdasdasd,0
+parass,100
+pelaaja,10
+asddd,0
+nonnig ,0
