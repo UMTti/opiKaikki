@@ -43,6 +43,15 @@ public class MitenMeniPanel extends JPanel {
         container.add(koonti);
         container.add(oikein);
         
+        ArrayList<String> oikeinMenneet = vastasitOikeinNäihinKysymyksiin();
+        container.add(new JLabel("Vastasit oikein kysymyksiin: \n"));
+        for(String kysymys: oikeinMenneet){
+            
+            JLabel koontiTeksti = new JLabel(kysymys);
+            container.add(koontiTeksti);
+            container.add(new JLabel("\n"));
+        }
+        
         ArrayList<String> aihepiirikoonnit = koontiAihepiireistä();
         for(String aihepiirikoonti: aihepiirikoonnit){
             
@@ -73,6 +82,16 @@ public class MitenMeniPanel extends JPanel {
             palautus.add(koonti);
         }
         return palautus;
+    }
+    
+    private ArrayList<String> vastasitOikeinNäihinKysymyksiin(){
+        ArrayList<String> oikeinMenneet = new ArrayList<String>();
+        for(Vastaus v: this.s.getVastaukset()){
+            if(v.getVastaus().equals(v.getKysymys().getOikeavastaus())){
+                oikeinMenneet.add(v.getKysymys().getKuvaus());
+            }
+        }
+        return oikeinMenneet;
     }
     
     private HashMap<String, int[]> luoAihepiiriHashmap(){
