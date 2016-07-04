@@ -36,7 +36,11 @@ public class KierroksenAloitusKuuntelija implements ActionListener {
         Sessio uusi = new Sessio(this.m, this.m.getVastausTiedostonnimi(), this.m.getKysymystenKäsittelijä());
         ArrayList<Kysymys> kysymykset = uusi.annaKysymyksetAlussa();
         container.removeAll();
-        container.add(new KysymysPanel(uusi, this.container, kysymykset, 0), BorderLayout.SOUTH);
+        if(kysymykset.size() != 0){
+        	 container.add(new KysymysPanel(uusi, this.container, kysymykset, 0), BorderLayout.SOUTH);
+        } else {
+        	container.add(new KysymyksiaEiOlePanel(this.container), BorderLayout.SOUTH);
+        }
         container.validate();
         container.repaint();
     }
